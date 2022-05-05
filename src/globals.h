@@ -2,7 +2,6 @@
 #define GLOBALS_H
 
 
-
 #define SERIALBAUDRATE 9600
 
 #define ACQUISITION_FREQUENCY 5000
