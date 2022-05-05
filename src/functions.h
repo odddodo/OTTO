@@ -28,14 +28,18 @@ void blink(){
 }
 
 void collectSensorData(){
-
+collectedData[0]=analogRead(PARTICLE);
+collectedData[1]=analogRead(GAS135_A);
+collectedData[2]=analogRead(GAS2_A);
+collectedData[3]=analogRead(UV);
 }
 
 void outputData2Serial(){
-
+DEBUG(String(collectedData[0])+","+String(collectedData[1])+","+String(collectedData[2])+","+String(collectedData[3]));
 }
 
 Ticker blinkingSlow(blink,ALRIGHTBLINK);
 Ticker blinkingFast(blink,ERRORBLINK);
-
+Ticker collect(collectSensorData,ACQUISITION_FREQUENCY);
+Ticker report(outputData2Serial,REPORTING_FREQUENCY);
 #endif
