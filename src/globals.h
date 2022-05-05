@@ -22,7 +22,7 @@
 
 bool LEDSTATE=true;
 #define ERRORBLINK 200
-#define ALRIGHTBLINK 1000
+#define ALRIGHTBLINK 500
 
 int collectedData[12];
 
