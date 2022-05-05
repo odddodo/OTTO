@@ -22,8 +22,7 @@ DEBUG("alive, all set!");
 void blink(){
 
     digitalWrite(DEBUG_LED,LEDSTATE);
-    LEDSTATE=!LEDSTATE;
-    DEBUG(LEDSTATE);
+    LEDSTATE=!LEDSTATE;    
     
 }
 
