@@ -1,6 +1,8 @@
 #ifndef GLOBALS_H
 #define GLOBALS_H
 
+
+
 #define SERIALBAUDRATE 9600
 
 #define PARTICLE A0
@@ -16,7 +18,9 @@
 
 #define DATABUFFSZIE 12
 
-bool ledON=true;
+bool LEDSTATE=true;
+#define ERRORBLINK 200
+#define ALRIGHTBLINK 1000
 
 int collectedData[12];
 
