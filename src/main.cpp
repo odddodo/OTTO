@@ -1,12 +1,15 @@
 #include <Arduino.h>
 #include <functions.h>
 #include <globals.h>
-#include <Ticker.h>
+
 
 void setup() {
+
  initHardware();
+ 
+ blinkingSlow.start();
 }
 
 void loop() {
-  
+ blinkingSlow.update(); 
 }
