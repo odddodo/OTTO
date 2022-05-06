@@ -42,35 +42,17 @@ DEBUG(String(collectedData[DUST_VAL])
 +","+String(collectedData[UV_VAL])
 +","+String(collectedData[4])
 +","+String(collectedData[5])
-+",weather: "+weatherReport);
++",WS: "+weatherReport);
 }
 
 const int BUFFER_SIZE =6;
 String inData;
 void listenToWeatherShield(){
-   /* char buf[BUFFER_SIZE];
-    if(Serial3.available()>0){
-        
-        Serial3.readBytesUntil('w',buf,BUFFER_SIZE);
-      
-            collectedData[4]=(int)buf[0];
-            collectedData[5]=(int)buf[1];
-        
-        
-    }
-    else{
-        collectedData[4]=0;
-        
-    }
-    */
+
    while(Serial3.available()>0){
     String received=Serial3.readStringUntil('#');
-    //inData+=received;
-   // if(received=='\n'){
-   // DEBUG(inData);
    weatherReport=received;
-    //inData="";
-   // }
+  
    }
 }
 

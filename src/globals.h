@@ -36,8 +36,8 @@
 #define DATABUFFSZIE 12
 
 bool LEDSTATE=true;
-#define ERRORBLINK 200
-#define ALRIGHTBLINK 500
+#define ERRORBLINK 100
+#define ALRIGHTBLINK 300
 
 int collectedData[12];
 String weatherReport;
