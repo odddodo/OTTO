@@ -12,10 +12,12 @@ void setup() {
  blinkingSlow.start();
  collect.start();
  report.start();
+ listen.start();
 }
 
 void loop() {
  blinkingSlow.update(); 
  collect.update();
  report.update();
+ listen.update();
 }
