@@ -4,11 +4,11 @@
 
 #define SERIALBAUDRATE 9600
 
-#define ACQUISITION_FREQUENCY 1000
-#define REPORTING_FREQUENCY 1000
+#define ACQUISITION_FREQUENCY 500
+#define REPORTING_FREQUENCY 5000
 #define WEATHER_CHECK_FREQUENCY 100
 
-#define PARTICLE A0
+#define DUST A0
 #define SONAR_1 22
 #define SONAR_2 23
 #define GAS135_A A1
@@ -40,6 +40,7 @@ bool LEDSTATE=true;
 #define ALRIGHTBLINK 300
 
 int collectedData[12];
+String inData;
 String weatherReport;
 
 #endif
