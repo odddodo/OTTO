@@ -6,6 +6,7 @@
 
 #define ACQUISITION_FREQUENCY 1000
 #define REPORTING_FREQUENCY 1000
+#define WEATHER_CHECK_FREQUENCY 100
 
 #define PARTICLE A0
 #define SONAR_1 22
@@ -39,5 +40,6 @@ bool LEDSTATE=true;
 #define ALRIGHTBLINK 500
 
 int collectedData[12];
+String weatherReport;
 
 #endif
