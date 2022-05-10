@@ -30,6 +30,8 @@
 #define HUMIDITY 9
 #define PRESSURE 10
 #define LIGHT 11
+#define CO 12
+#define NO2 13
 
 #define DEBUG_LED 13
 
@@ -39,8 +41,10 @@ bool LEDSTATE=true;
 #define ERRORBLINK 100
 #define ALRIGHTBLINK 300
 
-int collectedData[12];
+int collectedData[14];
 String inData;
 String weatherReport;
+
+
 
 #endif
