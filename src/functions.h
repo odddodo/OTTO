@@ -66,10 +66,45 @@ void blink(){
     LEDSTATE=!LEDSTATE;    
 }
 
+int Filter(int v){
+    static int flag_first=0,_buff[DUST_BUFF_LEN],sum;
+    const int _buff_max=DUST_BUFF_LEN;
+    int i;
+
+    if(flag_first==0){
+        flag_first=1;
+        for(i=0;i<_buff_max;i++){
+            _buff[i]=v;
+                  }
+                  return v;
+    }
+                  else{
+                      sum-=_buff[0];
+                      for(i=0;i<(_buff_max-1);i++){
+                          _buff[i]=_buff[i+1];
+                      }
+                      _buff[DUST_BUFF_LEN-1]=v;
+                      sum+=_buff[DUST_BUFF_LEN-1];
+                      i=sum/10.0;
+                      return i;
+                  }
+    
+}
+
+int process_dust(float reading){
+    if(reading>=NO_DUST_VOLT){
+        reading-=NO_DUST_VOLT;
+        return round(reading*0.2);
+    }
+    else{
+        return 0;
+    }
+}
+
 void collectSensorData(){
 digitalWrite(DUST_LED,HIGH);
-
-collectedData[DUST_VAL]=analogRead(DUST);
+delayMicroseconds(280);
+collectedData[DUST_VAL]=process_dust(Filter(analogRead(DUST))*11*(5000/1024.0));;
 collectedData[GAS1_VAL]=analogRead(GAS1_A);
 collectedData[GAS2_VAL]=analogRead(GAS2_A);
 collectedData[UV_VAL]=analogRead(UV);
@@ -82,6 +117,7 @@ collectedData[SONAR2_VAL]=digitalRead(SONAR_2_ECHO);
 collectedData[LUX_VAL]=tsl.getLuminosity(TSL2591_VISIBLE);
 
 digitalWrite(DUST_LED,LOW);
+
 }
 
 

@@ -4,7 +4,7 @@
 
 #define SERIALBAUDRATE 9600
 
-#define ACQUISITION_FREQUENCY 500
+#define ACQUISITION_FREQUENCY 1000
 #define REPORTING_FREQUENCY 5000
 #define WEATHER_CHECK_FREQUENCY 100
 
@@ -49,6 +49,7 @@ int collectedData[14];
 String inData;
 String weatherReport;
 
-
+#define DUST_BUFF_LEN 10
+#define NO_DUST_VOLT 400
 
 #endif
