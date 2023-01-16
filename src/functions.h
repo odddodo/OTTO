@@ -114,7 +114,11 @@ collectedData[C2H5OH]=grove_one.measure_C2H5OH();
 collectedData[VOC]=grove_one.measure_VOC();
 collectedData[SONAR1_VAL]=digitalRead(SONAR_1_ECHO);
 collectedData[SONAR2_VAL]=digitalRead(SONAR_2_ECHO);
-collectedData[LUX_VAL]=tsl.getLuminosity(TSL2591_VISIBLE);
+
+collectedData[FULL_VAL]=tsl.getFullLuminosity();
+collectedData[VIS_VAL]=tsl.getLuminosity(TSL2591_VISIBLE);
+collectedData[IR_VAL]=tsl.getLuminosity(TSL2591_INFRARED);
+collectedData[LUX_VAL]=tsl.calculateLux(collectedData[FULL_VAL], collectedData[IR_VAL]);
 
 digitalWrite(DUST_LED,LOW);
 
@@ -127,6 +131,9 @@ DEBUG(String(collectedData[DUST_VAL])
 +","+String(collectedData[GAS1_VAL])
 +","+String(collectedData[GAS2_VAL])
 +","+String(collectedData[UV_VAL])
++","+String(collectedData[FULL_VAL])
++","+String(collectedData[VIS_VAL])
++","+String(collectedData[IR_VAL])
 +","+String(collectedData[LUX_VAL])
 +","+String(collectedData[CO])
 +","+String(collectedData[NO2])
@@ -137,8 +144,6 @@ DEBUG(String(collectedData[DUST_VAL])
 DEBUG(weatherReport+"#");
 }
 
-
-
 void listenToWeatherShield(){
    while(Serial3.available()>0){
     String received=Serial3.readStringUntil('#');
@@ -146,7 +151,6 @@ void listenToWeatherShield(){
    weatherReport.replace("\n","");  
    }
 }
-
 
 Ticker blinkingSlow(blink,ALRIGHTBLINK);
 Ticker blinkingFast(blink,ERRORBLINK);
