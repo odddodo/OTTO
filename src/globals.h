@@ -30,16 +30,18 @@
 #define GAS1_VAL 3
 #define GAS2_VAL 4
 #define UV_VAL 5
-#define LUX_VAL 6
-#define LIGHT 7
-#define CO 8
-#define NO2 9
-#define C2H5OH 10
-#define VOC 11
+
+#define FULL_VAL 6
+#define VIS_VAL 7
+#define IR_VAL 8
+#define LUX_VAL 9
+
+#define CO 10
+#define NO2 11
+#define C2H5OH 12
+#define VOC 13
 
 #define DEBUG_LED 13
-
-#define DATABUFFSZIE 12
 
 bool LEDSTATE=true;
 #define ERRORBLINK 100
