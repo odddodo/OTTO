@@ -140,8 +140,13 @@ DEBUG(String(collectedData[DUST_VAL])
 +","+String(collectedData[C2H5OH])
 +","+String(collectedData[VOC])
 +","+String(collectedData[SONAR1_VAL])
-+","+String(collectedData[SONAR2_VAL]));
-DEBUG(weatherReport+"#");
++","+String(collectedData[SONAR2_VAL])
++","+String(weatherReport)
+);
+
+
+//DEBUG(weatherReport+"#");
+
 }
 
 void listenToWeatherShield(){
@@ -154,6 +159,7 @@ void listenToWeatherShield(){
 
 Ticker blinkingSlow(blink,ALRIGHTBLINK);
 Ticker blinkingFast(blink,ERRORBLINK);
+
 Ticker collect(collectSensorData,ACQUISITION_FREQUENCY);
 Ticker report(outputData2Serial,REPORTING_FREQUENCY);
 Ticker listen(listenToWeatherShield,WEATHER_CHECK_FREQUENCY);
