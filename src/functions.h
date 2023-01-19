@@ -153,7 +153,8 @@ void listenToWeatherShield(){
    while(Serial3.available()>0){
     String received=Serial3.readStringUntil('#');
    weatherReport=received;
-   weatherReport.replace("\n","");  
+   weatherReport.replace("\n","");
+   weatherReport.replace(",#",""); 
    }
 }
 
