@@ -150,12 +150,15 @@ DEBUG(String(collectedData[DUST_VAL])
 }
 
 void listenToWeatherShield(){
+   //Serial.print("get-");
    while(Serial3.available()>0){
-    String received=Serial3.readStringUntil('#');
+   String received=Serial3.readStringUntil('#');
    weatherReport=received;
-   weatherReport.replace("\n","");
-   weatherReport.replace(",#",""); 
+   weatherReport.trim();
+   //weatherReport.replace("\n","");
+   weatherReport.replace("$",""); 
    }
+   //Serial.print("-done");
 }
 
 Ticker blinkingSlow(blink,ALRIGHTBLINK);
